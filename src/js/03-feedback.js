@@ -20,9 +20,14 @@ populateFormTextContent();
 function onFormSubmit(e) {
   e.preventDefault();
 
+  if (email.value === '' || textarea.value === '') {
+    return alert('Please fill in all the fields!');
+  }
+
   e.currentTarget.reset();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
+  formData = {};
 }
 
 function onFormTextContent(e) {
